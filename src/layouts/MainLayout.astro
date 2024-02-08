@@ -1,6 +1,8 @@
 ---
 const { title } = Astro.props;
 import ContactForm from "../components/ContactForm.astro";
+import NavBar from "../components/NavBar.astro"
+import Footer from "../components/Footer.astro"
 ---
 
 <!doctype html>
@@ -18,8 +20,10 @@ import ContactForm from "../components/ContactForm.astro";
         <!-- <link rel="preload" as="image" href="landing-m.webp"> -->
 	</head>
 	<body>
+        <NavBar />
 		<slot />
         <ContactForm />
+        <Footer />
 	</body>
 </html>
 
