@@ -1,3 +1,7 @@
+---
+const { title1, title2, p1, p2, p3, p4} = Astro.props
+---
+
 <!-- ============================================ -->
 <!--                Side By Side                  -->
 <!-- ============================================ -->
@@ -27,22 +31,15 @@
             <img class="cs-graphic" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/eclipses.svg" alt="stripes" width="140" height="140" aria-hidden="true">
         </div>
         <div class="cs-content">
-            <span class="cs-topper">Mission & Vision</span>
-            <h2 class="cs-title">Stitch Car Mechanics Mission & Vision</h2>
+            <span class="cs-topper">Postaw na fachowców</span>
+            <h2 class="cs-title">{title1}</h2>
             <p class="cs-text">
-                Our professionals will perform diagnostic tests, fluid flush and fills, engine replacement, oil changes, and total vehicle overhauls. Busto auctor lectus vitae conubia euismod nec rhoncus parturient convallis parturient accumsan volutpat ligula and intege aenean facilisis.
+                {p1}
             </p>
             <ul class="cs-ul">
                 <li class="cs-li">
-                    <h3 class="cs-h3">Mission Statement</h3>
                     <p class="cs-li-text">
-                        Our Mission is to serve our customers and always deliver the highest level of customer service; to develop our team and strive to constantly improve; and to conduct ourselves in an environmentally responsible manner.
-                    </p>
-                </li>
-                <li class="cs-li">
-                    <h3 class="cs-h3">Our Vision</h3>
-                    <p class="cs-li-text">
-                        To be the world’s most exciting leader in automotive business intelligence solutions. We will generate excitement through implementing pioneering ideas, problem solving & going beyond our customers’ expectations.
+                        {p2}
                     </p>
                 </li>
             </ul>
@@ -79,22 +76,15 @@
             <img class="cs-graphic" loading="lazy" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/eclipses.svg" alt="stripes" width="140" height="140" aria-hidden="true">
         </div>
         <div class="cs-content">
-            <span class="cs-topper">Mission & Vision</span>
-            <h2 class="cs-title">Stitch Car Mechanics Mission & Vision</h2>
+            <span class="cs-topper">Nie zwlekaj</span>
+            <h2 class="cs-title">{title2}</h2>
             <p class="cs-text">
-                Our professionals will perform diagnostic tests, fluid flush and fills, engine replacement, oil changes, and total vehicle overhauls. Busto auctor lectus vitae conubia euismod nec rhoncus parturient convallis parturient accumsan volutpat ligula and intege aenean facilisis.
+                {p3}
             </p>
             <ul class="cs-ul">
                 <li class="cs-li">
-                    <h3 class="cs-h3">Mission Statement</h3>
                     <p class="cs-li-text">
-                        Our Mission is to serve our customers and always deliver the highest level of customer service; to develop our team and strive to constantly improve; and to conduct ourselves in an environmentally responsible manner.
-                    </p>
-                </li>
-                <li class="cs-li">
-                    <h3 class="cs-h3">Our Vision</h3>
-                    <p class="cs-li-text">
-                        To be the world’s most exciting leader in automotive business intelligence solutions. We will generate excitement through implementing pioneering ideas, problem solving & going beyond our customers’ expectations.
+                        {p4}
                     </p>
                 </li>
             </ul>
