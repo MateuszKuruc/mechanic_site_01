@@ -2,7 +2,7 @@
 <!--                    Hero                      -->
 <!-- ============================================ -->
 
-<section id="hero-1160">
+<section id="hero">
     <div class="cs-container">
         <div class="cs-content">
             <span class="cs-topper">Najlepszy serwis w okolicy</span>
@@ -32,7 +32,7 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #hero-1160 {
+    #hero {
         /* 200px - 300px - leaving extra space for the navigation */
         padding: clamp(12.5rem, 31.95vw, 18.75rem) 1rem 0;
         /* 150px - 300px */
@@ -43,7 +43,7 @@
         position: relative;
         z-index: 1;
     }
-    #hero-1160 .cs-container {
+    #hero .cs-container {
         width: 100%;
         max-width: 80rem;
         margin: auto;
@@ -54,7 +54,7 @@
         /* 48px - 64px */
         gap: clamp(3rem, 6vw, 4rem);
     }
-    #hero-1160 .cs-content {
+    #hero .cs-content {
         /* set text align to left if content needs to be left aligned */
         text-align: center;
         width: 100%;
@@ -64,7 +64,7 @@
         /* centers content horizontally, set to flex-start to left align */
         align-items: center;
     }
-    #hero-1160 .cs-topper {
+    #hero .cs-topper {
         font-size: var(--topperFontSize);
         line-height: 1.2em;
         text-transform: uppercase;
@@ -75,7 +75,7 @@
         margin-bottom: 0.25rem;
         display: block;
     }
-    #hero-1160 .cs-title {
+    #hero .cs-title {
         /* 39px - 61px */
         font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
         font-weight: 700;
@@ -86,7 +86,7 @@
         color: #fff;
         position: relative;
     }
-    #hero-1160 .cs-text {
+    #hero .cs-text {
         /* 16px - 20px */
         font-size: clamp(1rem, 1.95vw, 1.25rem);
         line-height: 1.5em;
@@ -97,7 +97,7 @@
         margin: 0 0 2.5rem 0;
         color: #fff;
     }
-    #hero-1160 .cs-button-solid {
+    #hero .cs-button-solid {
         font-size: 1rem;
         /* 46px - 56px */
         line-height: clamp(2.875rem, 5.5vw, 3.5rem);
@@ -111,7 +111,7 @@
         position: relative;
         z-index: 1;
     }
-    #hero-1160 .cs-button-solid:before {
+    #hero .cs-button-solid:before {
         content: "";
         position: absolute;
         display: block;
@@ -124,17 +124,17 @@
         z-index: -1;
         transition: width 0.3s;
     }
-    #hero-1160 .cs-button-solid:hover:before {
+    #hero .cs-button-solid:hover:before {
         width: 100%;
     }
-    #hero-1160 .cs-graphic {
+    #hero .cs-graphic {
         width: 100%;
         height: auto;
         position: absolute;
         bottom: -1px;
         left: 0;
     }
-    #hero-1160 .cs-background {
+    #hero .cs-background {
         width: 100%;
         height: 100%;
         display: block;
@@ -143,7 +143,7 @@
         left: 0;
         z-index: -2;
     }
-    #hero-1160 .cs-background:before {
+    #hero .cs-background:before {
         /* Overlay */
         content: "";
         width: 100%;
@@ -158,7 +158,7 @@
         /* prevents the cursor from interacting with it */
         pointer-events: none;
     }
-    #hero-1160 .cs-background img {
+    #hero .cs-background img {
         position: absolute;
         top: 0;
         left: 0;
@@ -171,14 +171,14 @@
 }
 /* Large Desktop - 1600px - Prallax Effect */
 @media only screen and (min-width: 100rem) {
-    #hero-1160 .cs-background {
+    #hero .cs-background {
         background: url("/assets/images/hero.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
     }
-    #hero-1160 .cs-background img {
+    #hero .cs-background img {
         display: none;
     }
 }
