@@ -35,12 +35,18 @@
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li">
-                        <a href="/" class="cs-li-link cs-active">
+                        <a href="/" class:list={[
+                            "cs-li-link",
+                            { "cs-active": Astro.url.pathname === "/"}
+                            ]}>
                             Strona główna
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/o-nas" class="cs-li-link">
+                        <a href="/o-nas" class:list={[
+                            "cs-li-link",
+                            { "cs-active": Astro.url.pathname === "/o-nas"}
+                            ]}>
                             O nas
                         </a>
                     </li>
@@ -51,32 +57,62 @@
                         </span>
                         <ul class="cs-drop-ul">
                             <li class="cs-drop-li">
-                                <a href="/diagnostyka-komputerowa" class="cs-li-link cs-drop-link">Diagnostyka komputerowa</a>
+                                <a href="/diagnostyka-komputerowa" class:list={[
+                                    "cs-li-link",
+                                    "cs-drop-link",
+                                    { "cs-active": Astro.url.pathname === "/diagnostyka-komputerowa"}
+                                    ]}>Diagnostyka komputerowa</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/serwis-kol-i-opon" class="cs-li-link cs-drop-link">Serwis kół i opon</a>
+                                <a href="/serwis-kol-i-opon" class:list={[
+                                    "cs-li-link",
+                                    "cs-drop-link",
+                                    { "cs-active": Astro.url.pathname === "/serwis-kol-i-opon"}
+                                    ]}>Serwis kół i opon</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/przeglady-okresowe" class="cs-li-link cs-drop-link">Przeglądy okresowe</a>
+                                <a href="/przeglady-okresowe" class:list={[
+                                    "cs-li-link",
+                                    "cs-drop-link",
+                                    { "cs-active": Astro.url.pathname === "/przeglady-okresowe"}
+                                    ]}>Przeglądy okresowe</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/serwis-klimatyzacji" class="cs-li-link cs-drop-link">Serwis klimatyzacji</a>
+                                <a href="/serwis-klimatyzacji" class:list={[
+                                    "cs-li-link",
+                                    "cs-drop-link",
+                                    { "cs-active": Astro.url.pathname === "/serwis-klimatyzacji"}
+                                    ]}>Serwis klimatyzacji</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/wulkanizacja" class="cs-li-link cs-drop-link">Wulkanizacja</a>
+                                <a href="/wulkanizacja" class:list={[
+                                    "cs-li-link",
+                                    "cs-drop-link",
+                                    { "cs-active": Astro.url.pathname === "/wulkanizacja"}
+                                    ]}>Wulkanizacja</a>
                             </li>
                             <li class="cs-drop-li">
-                                <a href="/czesci-i-akcesoria" class="cs-li-link cs-drop-link">Części i akcesoria</a>
+                                <a href="/czesci-i-akcesoria" class:list={[
+                                    "cs-li-link",
+                                    "cs-drop-link",
+                                    { "cs-active": Astro.url.pathname === "/czesci-i-akcesoria"}
+                                    ]}>Części i akcesoria</a>
                             </li>
                         </ul>
                     </li>
                     <li class="cs-li">
-                        <a href="/cennik" class="cs-li-link">
+                        <a href="/cennik" class:list={[
+                            "cs-li-link",
+                            { "cs-active": Astro.url.pathname === "/cennik"}
+                            ]}>
                             Cennik
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/galeria" class="cs-li-link">
+                        <a href="/galeria" class:list={[
+                            "cs-li-link",
+                            { "cs-active": Astro.url.pathname === "/galeria"}
+                            ]}>
                             Galeria
                         </a>
                     </li>
@@ -96,7 +132,7 @@ body,
 html {
     /* reset margin and padding so there's no gap between the nav and the screen edges */
     margin: 0;
-       padding: 0;
+    padding: 0;
 }
 
 /* Mobile - 767px */
@@ -794,39 +830,3 @@ html {
 
 </style>
 
-<script>
-    // add classes for mobile navigation toggling
-    var CSbody = document.querySelector("body");
-    const CSnavbarMenu = document.querySelector("#cs-navigation");
-    const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
-
-    CShamburgerMenu.addEventListener('click', function() {
-        CShamburgerMenu.classList.toggle("cs-active");
-        CSnavbarMenu.classList.toggle("cs-active");
-        CSbody.classList.toggle("cs-open");
-        // run the function to check the aria-expanded value
-        ariaExpanded();
-    });
-
-    // checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not 
-    function ariaExpanded() {
-        const csUL = document.querySelector('#cs-expanded');
-        const csExpanded = csUL.getAttribute('aria-expanded');
-
-        if (csExpanded === 'false') {
-            csUL.setAttribute('aria-expanded', 'true');
-        } else {
-            csUL.setAttribute('aria-expanded', 'false');
-        }
-    }
-
-    // mobile nav toggle code
-    const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
-        for (const item of dropDowns) {
-            const onClick = () => {
-            item.classList.toggle('cs-active')
-        }
-        item.addEventListener('click', onClick)
-        }
-                                
-</script>
