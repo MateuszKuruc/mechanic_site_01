@@ -1,0 +1,184 @@
+---
+const { title } = Astro.props;
+import ContactForm from "../components/ContactForm.astro";
+import NavBar from "../components/NavBar.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<!doctype html>
+<html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Postaw na doświadczonego hydraulika" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+         <!--Favicons-->
+    <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/assets/favicons/favicon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/assets/favicons/favicon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/assets/favicons/favicon.png"
+  />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        <!-- <link rel="preload" href="../fonts/mr-dafoe-v14-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="../fonts/montserrat-v26-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="../fonts/montserrat-v26-latin_latin-ext-700.woff2" as="font" type="font/woff2" crossorigin> -->
+        <!-- <link rel="preload" as="image" href="landing-m.webp"> -->
+	</head>
+	<body>
+        <NavBar />
+		<slot />
+        <ContactForm />
+        <Footer />
+	</body>
+</html>
+
+<style is:global>
+:root {
+    --primary: #D90429;
+    --primaryLight: #D90429;
+    --secondary: #FFC513;
+    --secondaryLight: #ffba43;
+    --headerColor: #1a1a1a;
+    --bodyTextColor: #4e4b66;
+    --bodyTextColorWhite: #fafbfc;
+    /* 13px - 16px */
+    --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+    /* 31px - 49px */
+    --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+    --bodyFontSize: 1rem;
+    /* 60px - 100px top and bottom */
+    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+    /* prevents padding from affecting height and width */
+    box-sizing: border-box;
+}
+.cs-topper {
+    font-size: var(--topperFontSize);
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: inherit;
+    letter-spacing: .1em;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.cs-title {
+    font-size: var(--headerFontSize);
+    font-weight: 900;
+    line-height: 1.2em;
+    text-align: inherit;
+    max-width: 43.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--headerColor);
+    position: relative;
+}
+
+.cs-text {
+    font-size: var(--bodyFontSize);
+    line-height: 1.5em;
+    text-align: inherit;
+    width: 100%;
+    max-width: 40.625rem;
+    margin: 0;
+    color: var(--bodyTextColor);
+}           
+.cs-button-solid {
+    font-size: 1rem;
+        /* 46px - 56px */
+        line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        margin: 0;
+        color: #fff;
+        min-width: 9.375rem;
+        padding: 0 1.5rem;
+        background-color: var(--primary);
+        border-radius: 0.25rem;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        /* prevents padding from adding to the width */
+        box-sizing: border-box;
+}         
+.cs-button-solid:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 0%;
+        background: #000;
+        opacity: 1;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 0.25rem;
+        transition: width 0.3s;
+    }
+.cs-button-solid:hover:before {
+        width: 100%;
+        background: #000;
+    }
+
+</style>
+
+<script>
+    // add classes for mobile navigation toggling
+    var CSbody = document.querySelector("body");
+    const CSnavbarMenu = document.querySelector("#cs-navigation");
+    const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+
+    CShamburgerMenu.addEventListener('click', function() {
+        CShamburgerMenu.classList.toggle("cs-active");
+        CSnavbarMenu.classList.toggle("cs-active");
+        CSbody.classList.toggle("cs-open");
+        // run the function to check the aria-expanded value
+        ariaExpanded();
+    });
+
+    // checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not 
+    function ariaExpanded() {
+        const csUL = document.querySelector('#cs-expanded');
+        const csExpanded = csUL.getAttribute('aria-expanded');
+
+        if (csExpanded === 'false') {
+            csUL.setAttribute('aria-expanded', 'true');
+        } else {
+            csUL.setAttribute('aria-expanded', 'false');
+        }
+    }
+
+    // mobile nav toggle code
+    const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
+        for (const item of dropDowns) {
+            const onClick = () => {
+            item.classList.toggle('cs-active')
+        }
+        item.addEventListener('click', onClick)
+        }
+                                
+</script>
